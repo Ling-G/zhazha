@@ -1,0 +1,7 @@
+#debug模式
+Debug: false
+#需要开启参观的世界
+Worlds:
+  - '2nd'
+#版本号
+ver: '1.0'
