@@ -6,10 +6,3 @@ commands:
   Zhazha:
     aliases: [zz]
     description: Zhazha插件的主命令
-    usage: §a[Zhazha] §c格式不正确,请输入/zz查看帮助
-    permission: Zhazha.admin
-    permission-message: §a[Zhazha] §c你没有此命令的权限!
-permissions:
-  Zhazha.admin:
-    description: 允许使用Zhazha插件的所有命令!
-    default: op
