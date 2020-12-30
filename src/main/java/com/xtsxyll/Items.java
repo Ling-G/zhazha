@@ -1,6 +1,7 @@
 package com.xtsxyll;
 
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -140,6 +141,22 @@ public class Items {
             meta.setDisplayName("§2§l紧急迫降");
             List<String> lore = new ArrayList<>();
             lore.add("-随机传送到一个地方并进行迫降");
+            meta.setLore(lore);
+            meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+            itemStack.setItemMeta(meta);
+            return itemStack;
+        }
+
+        if (itemName.equalsIgnoreCase("烟花发射器")){
+            ItemStack itemStack = new ItemStack(Material.DIAMOND_HORSE_ARMOR,1);
+            itemStack.addUnsafeEnchantment(Enchantment.PROTECTION_EXPLOSIONS,5);
+
+            ItemMeta meta = itemStack.getItemMeta();
+            assert meta != null;
+            meta.setDisplayName("§2§l烟花发射器");
+            List<String> lore = new ArrayList<>();
+            lore.add("-右键发射烟花");
+            lore.add("-注意别把自己炸死");
             meta.setLore(lore);
             meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
             itemStack.setItemMeta(meta);

@@ -1,17 +1,10 @@
 package com.xtsxyll;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.Material;
-import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
+import org.bukkit.*;
+import org.bukkit.entity.*;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,6 +14,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.FireworkMeta;
 
 public class World2nd implements Listener {
     public static Boolean a = Boolean.TRUE;
@@ -67,6 +61,153 @@ public class World2nd implements Listener {
                 //player.sendMessage("§a你打开了菜单");
                 e.setCancelled(true);
             }
+            if (player.getItemInHand().isSimilar(items.getItem("烟花发射器"))){
+                if (!Zhazha.yanhua) return;
+                final FireworkEffect.Builder fb = FireworkEffect.builder();
+                final Random r = new Random();
+                FireworkEffect f = null;
+                int rc = r.nextInt(10);
+                debug(""+rc);
+                switch (rc){
+                    case 1:
+                        fb.withColor(Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
+                        break;
+                    case 2:
+                        fb.withColor(
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                        );
+                        break;
+                    case 3:
+                        fb.withColor(
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                        );
+                        break;
+                    case 4:
+                        fb.withColor(
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                        );
+                        break;
+                    case 5:
+                        fb.withColor(
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                        );
+                        break;
+                    case 6:
+                        fb.withColor(
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                        );
+                        break;
+                    case 7:
+                        fb.withColor(
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                        );
+                        break;
+                    case 8:
+                        fb.withColor(
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                        );
+                        break;
+                    case 9:
+                        fb.withColor(
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                        );
+                        break;
+                    case 10:
+                        fb.withColor(
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                        );
+                        break;
+                    default:
+                        fb.withColor(Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
+                }
+                final FireworkEffect.Type[] type = FireworkEffect.Type.values();
+                fb.with(type[r.nextInt(type.length)]);
+                if (r.nextInt(3) == 0) {
+                    fb.withTrail();
+                    //尾迹
+                }
+                if (r.nextInt(2) == 0) {
+                    //淡出
+                    rc = r.nextInt(3);
+                    switch (rc) {
+                        case 0:
+                            fb.withFade(Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
+                            break;
+                        case 1:
+                            fb.withFade(
+                                    Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                    Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                            );
+                            break;
+                        case 2:
+                            fb.withFade(
+                                    Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                    Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)),
+                                    Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))
+                            );
+                            break;
+                        default:
+                            fb.withFade(Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
+                    }
+                }
+                if (r.nextInt(3) == 0) {
+                    //闪烁
+                    fb.withFlicker();
+                }
+                f = fb.build();
+                final Firework fw = (Firework) player.getWorld().spawnEntity(player.getLocation().add(0,1,0), EntityType.FIREWORK);
+                final FireworkMeta fwm = fw.getFireworkMeta();
+                fwm.clearEffects();
+                fwm.addEffect(f);
+                fwm.setPower(0);
+                fw.setFireworkMeta(fwm);
+                fw.setVelocity(player.getLocation().getDirection().multiply(0.5));
+            }
         }
     }
 
@@ -79,47 +220,26 @@ public class World2nd implements Listener {
                 Player player = (Player) event.getWhoClicked();
                 //debug(event.getCurrentItem().toString());
                 String[] gui = {"主城","回家","远程背包","返回上一地点","村民交易所","小黑塔","COI查询","每日签到","你就是土豪","紧急迫降"};
+                String[] command = {"spawn", "home home", "bag", "back", "warp cm", "res tp shu", "co i", "signin click", "Balance", "rp"};
+                String[] info = {"传送到主城", "传送到名为home的家", "打开远程背包", "返回上一地点", "传送到村民交易所", "传送到小黑塔", "", "", "", ""
+                };
                 for (int i =0;i < gui.length;i++){
                     if (event.getCurrentItem().isSimilar(items.getItem(gui[i]))){
-                        String[] command = {
-                                "spawn",
-                                "home",
-                                "bag",
-                                "back",
-                                "warp cm",
-                                "res tp shu",
-                                "co i",
-                                "signin click",
-                                "Balance",
-                                "rp"
-                        };
-                        String[] info = {
-                                "传送到主城",
-                                "传送到名为home的家",
-                                "打开远程背包",
-                                "返回上一地点",
-                                "传送到村民交易所",
-                                "传送到小黑塔",
-                                "",
-                                "",
-                                "",
-                                ""
-                        };
-                        int a = event.getRawSlot();//点击的第几个，从0开始
+
+                        int index = event.getRawSlot();//点击的第几个，从0开始
                         //debug(String.valueOf(a));
-                        if (!info[a].equals("")){
-                            player.sendMessage((ChatColor.GOLD + info[a]));
+                        if (!info[index].equals("")){
+                            player.sendMessage((ChatColor.GOLD + info[index]));
                         }
-                        player.performCommand(command[a]);
-                        if (!command[a].equals("bag")){
-                            event.getView().close();
-                        }
-                        //player.sendMessage("99999999999");
-                        return;
+                        event.getView().close();
+                        player.performCommand(command[index]);
+                        break;
                     }
                 }
             }
+
         }
+
     }
 
     @EventHandler

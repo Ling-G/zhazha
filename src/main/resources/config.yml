@@ -1,5 +1,7 @@
 #debug模式
 Debug: false
+#是否开启烟花发射器
+Yanhua: false
 #需要开启参观的世界
 Worlds:
   - '2nd'

@@ -27,6 +27,8 @@ public final class Zhazha extends JavaPlugin implements Listener {
 
     public static Boolean debug;
 
+    public static Boolean yanhua;
+
     public static String Qz = "§e[Zhazha] §a";
     private Items items = new Items();
 
@@ -59,12 +61,14 @@ public final class Zhazha extends JavaPlugin implements Listener {
         worldlist = new String[0];
         try {
             debug = config.getBoolean("Debug");
+            yanhua = config.getBoolean("Yanhua");
             if (debug)
                 log(Qz + "Debug模式已开启");
                 config.getStringList("Worlds").forEach(s -> worldlist = insert(worldlist, s));
                 config.getStringList("Worlds").forEach(s -> log(Qz + "已加载需要保护的世界："+ s));
                 log(Qz + config.getString("ver"));
                 World2nd.debug("结束");
+
         } catch (Exception e) {
             log(Qz + e.toString());
         }
@@ -89,6 +93,15 @@ public final class Zhazha extends JavaPlugin implements Listener {
                     player.sendMessage("§a§l你获得了一个菜单");
                 }else {
                     player.sendMessage(ChatColor.RED+"§l你已经拥有一个菜单了！");
+                }
+                return true;
+            }
+            if (args.length == 1 && args[0].equalsIgnoreCase("yanhua")) {
+                if (!player.getInventory().contains(items.getItem("烟花发射器"))){
+                    player.getInventory().addItem(items.getItem("烟花发射器"));
+                    player.sendMessage("§a§l你获得了一个烟花发射器");
+                }else {
+                    player.sendMessage(ChatColor.RED+"§l你已经拥有一个烟花发射器了！");
                 }
                 return true;
             }
